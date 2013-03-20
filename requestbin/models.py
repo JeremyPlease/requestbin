@@ -82,7 +82,7 @@ class Request(object):
             self.content_type = input.content_type
 
             # This is where the magic of capture.py comes in
-            self.raw = input.environ['raw'].getvalue()
+            self.raw = input.environ
             for header in self.ignore_headers:
                 self.raw = re.sub(r'{}: [^\n]+\n'.format(header), 
                                     '', self.raw, flags=re.IGNORECASE)
